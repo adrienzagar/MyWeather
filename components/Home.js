@@ -1,11 +1,13 @@
 import React from 'react'
 import {View, Text, TextInput} from 'react-native'
 
-const Home = ({ presentation, imagePresentation}) => {
-  console.log(presentation, 'coucou')
+const Home = ({ presentation, imagePresentation }) => {
+  console.log(presentation, 'state data from Home Reducer')
     return (
       <View>
-        <Text>Coucou</Text>
+        {presentation.map((text) => (
+          <Text>{presentation}</Text>
+        ))}
       </View>
     )
 };
