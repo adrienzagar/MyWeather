@@ -3,11 +3,12 @@ import {View, Text, TextInput, StyleSheet} from 'react-native'
 import Header from '../containers/Header/index'
 // import { onChange } from 'react-native-reanimated';
 
-const Home = ({ setInputValue, inputValue }) => {
+const Home = ({ setInputValue, inputValue, getRepositories }) => {
   const handleOnSubmit = (evt) => {
-    console.log(inputValue)
+    // console.log(inputValue)
     evt.preventDefault();
-    onSubmitSearch()
+    getRepositories()
+    // onSubmitSearch()
   }
   const handleChange = (evt) => {
     console.log(evt)

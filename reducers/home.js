@@ -3,7 +3,8 @@ import { SET_INPUT_VALUE } from '../actions/home'
 
 //! == Initial state
 export const initialState = {
-    inputValue: ''
+    inputValue: '',
+    page: 10
 };
 
 //! == Actions to modified state

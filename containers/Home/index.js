@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import Home from '../../components/Home';
-import { setInputValue } from '../../actions/home';
+import { setInputValue, getRepositories } from '../../actions/home';
 
 // Reading State
 const mapStateToProps = (state) => ({
@@ -10,13 +10,8 @@ const mapStateToProps = (state) => ({
 
 // Writing State
 const mapDispatchToProps = (dispatch) => ({
-    setInputValue: (inputValue) => {
-        dispatch(setInputValue(inputValue))
-
-        // Other way to write :
-        // const action = setInputValue(inputValue);
-        // dispatch(action)
-    }
+    setInputValue: (inputValue) => dispatch(setInputValue(inputValue)),
+    getRepositories: () => dispatch(getRepositories())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);  
