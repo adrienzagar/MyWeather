@@ -6,6 +6,7 @@ import { setInputValue, getRepositories } from '../../actions/home';
 // Reading State
 const mapStateToProps = (state) => ({
     inputValue: state.inputValue,
+    repositories: [],
 });
 
 // Writing State

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_REPOSITORIES } from '../actions/home';
+import { GET_REPOSITORIES, saveRepositories } from '../actions/home';
 
 const searchMiddlewares = (store) => (next) => (action) => {
     switch (action.type) {
@@ -12,7 +12,7 @@ const searchMiddlewares = (store) => (next) => (action) => {
             axios.get(`https://api.github.com/search/repositories?q=${inputValue}&sort=stars&order=desc&page=30&per_page=9`)
                 .then(({ data }) => {
                     console.log(data.items)
-                    // store.dispatch(saveRepositories(data.items))
+                    store.dispatch(saveRepositories(data.items))
                 })
                 .then((error) => {
                     console.log(error)
