@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, TextInput, StyleSheet} from 'react-native'
+import {View, Text, Image} from 'react-native'
 
 
 // import githubLogo from '../../assets/images/';
@@ -7,7 +7,10 @@ import {View, Text, TextInput, StyleSheet} from 'react-native'
 const Header = () => (
   <View>
     {/* <img src={githubLogo} alt="Github logo" /> */}
-    <Text>Logo GitHub</Text>
+    <Image
+        // style={styles.tinyLogo}
+        source={require('../assets/logo-github.png')}
+    />
   </View>
 );
 
