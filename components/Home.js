@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, TextInput, SafeAreaView, ScrollView, StyleSheet} from 'react-native';
+import {View, ScrollView, StyleSheet} from 'react-native';
 import { Searchbar } from 'react-native-paper';
 import Constants from 'expo-constants';
 import Header from '../containers/Header/index';
@@ -21,26 +21,18 @@ const Home = ({ setInputValue, inputValue, getRepositories, repositories }) => {
     return (
       <View>
         <Header style={style.Header} />
-        {/* <TextInput 
-          style={style.container} 
-          onChangeText={handleChange} 
-          value={inputValue}
-          onSubmitEditing={handleOnSubmit}
-        ></TextInput> */}
         <Searchbar
+          style={style.SearchBar}
           placeholder="Search a repository"
           onChangeText={handleChange}
           onSubmitEditing={handleOnSubmit}
           value={inputValue}
         />
-        <SafeAreaView style={style.scrollContainer}>    
            <ScrollView style={style.scrollView}>
         {repositories.map((result) => (
           <Repository key={result.id} {...result} />
         ))}
             </ScrollView>
-        </SafeAreaView>
-        {/* <Repository repositories={repositories} /> */}
       </View>
     )
 };
@@ -57,9 +49,11 @@ const style = StyleSheet.create({
   Header: {
     marginTop: 20
   },
+  SearchBar: {
+    marginBottom: 10
+  },
   scrollView: {
-    backgroundColor: '#F0F',
-    marginHorizontal: 20,
+    marginHorizontal: 40,
     height: 500,
   },
   scrollContainer: {

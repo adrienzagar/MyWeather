@@ -10,7 +10,6 @@ import { Provider as PaperProvider } from 'react-native-paper';
 import store from './store'
 import About from './components/About'
 import Home from './containers/Home/index'
-import Header from './containers/Header/index'
 
 const Tab = createMaterialTopTabNavigator();
 

@@ -4,7 +4,6 @@ import { SET_INPUT_VALUE, SAVE_REPOSITORIES } from '../actions/home'
 //! == Initial state
 export const initialState = {
     inputValue: '',
-    page: 10,
     repositories: [],
 };
 

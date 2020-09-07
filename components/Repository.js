@@ -1,37 +1,37 @@
 import React from 'react'
-import { View, Text, Image, SafeAreaView, ScrollView, StyleSheet, FlatList } from 'react-native'
+import { View, Text, Image, StyleSheet, } from 'react-native'
+import * as Linking from 'expo-linking';
 import { Avatar, Button, Card, Title, Paragraph } from 'react-native-paper';
 
-const Repository = ({ name, descritpion, owner }) => {
-    console.log(owner)
-    const LeftContent = props => <Avatar.Icon {...props} icon="folder" />
+const Repository = ({ name, descritpion, owner, stargazers_count }) => {
+
+    const handlePress = () => {
+        Linking.openURL(`${owner.htlm_url}`)
+    }
+    
+    const LeftContent = () => <Image style={{ width: 50, height: 50 }} source={{ uri: `${owner.avatar_url}` }} />
+
     return(
-        <Card>
+        <Card key={owner.id}>
             <Card.Title title={owner.login} subtitle={owner.type} left={LeftContent} source={{ uri: `${owner.avatar_url}` }} />
             <Card.Content>
-            <Title>{name}</Title>
+            <Title onPress={handlePress}>{name}</Title>
             <Paragraph>{descritpion}</Paragraph>
+            <View style={style.stars}>
+                <Image  source={require('../assets/star.png')} />
+                <Text >{stargazers_count} </Text>
+            </View>
             </Card.Content>
-            <Card.Cover source={{ uri: `${owner.avatar_url}` }} />
+            {/* <Card.Cover source={{ uri: `${owner.avatar_url}` }} /> */}
         </Card>
     )
 };
 
-const styles = StyleSheet.create({
-    Text: {
-        color: '#f0f',
-        fontSize: 20   
-    },
-    Repository: {
-        color: '#f0f',
-        marginTop: 150,
-        fontSize: 100,
-    },
-    Image: {
-        width: 50,
-        height: 50,
+const style = StyleSheet.create({
+    stars: {
+        flex: 1,
+        flexDirection: "row",
     }
-    
-});
+})
 
 export default Repository

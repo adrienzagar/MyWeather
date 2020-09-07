@@ -9,7 +9,7 @@ const searchMiddlewares = (store) => (next) => (action) => {
             const inputValue  = state.home.inputValue;
             console.log(inputValue)
 
-            axios.get(`https://api.github.com/search/repositories?q=${inputValue}&sort=stars&order=desc&page=30&per_page=9`)
+            axios.get(`https://api.github.com/search/repositories?q=${inputValue}&sort=stars&order=desc&page=30&per_page=30`)
                 .then(({ data }) => {
                     console.log(data.items)
                     store.dispatch(saveRepositories(data.items))
