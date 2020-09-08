@@ -1,7 +1,9 @@
 import React from 'react'
 import { View, Text, Image, StyleSheet, } from 'react-native'
 import * as Linking from 'expo-linking';
-import { Avatar, Button, Card, Title, Paragraph } from 'react-native-paper';
+import { Card, Title, Paragraph } from 'react-native-paper';
+import PropTypes from 'prop-types';
+
 
 const Repository = ({ name, descritpion, owner, stargazers_count }) => {
 
@@ -33,5 +35,12 @@ const style = StyleSheet.create({
         flexDirection: "row",
     }
 })
+
+Repository.propTypes = {
+    name: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    owner: PropTypes.string.isRequired,
+    stargazers_count: PropTypes.number.isRequired,
+}
 
 export default Repository

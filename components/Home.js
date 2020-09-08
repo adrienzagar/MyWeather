@@ -4,6 +4,7 @@ import { Searchbar } from 'react-native-paper';
 import Constants from 'expo-constants';
 import Header from '../containers/Header/index';
 import Repository from './Repository';
+import PropTypes from 'prop-types';
 // import { onChange } from 'react-native-reanimated';
 
 const Home = ({ setInputValue, inputValue, getRepositories, repositories }) => {
@@ -61,4 +62,17 @@ const style = StyleSheet.create({
     marginTop: Constants.statusBarHeight,
   },
 })
+
+Home.propTypes = {
+  inputValue: PropTypes.string,
+  getRepositories: PropTypes.func.isRequired,
+  setInputValue: PropTypes.func.isRequired,
+  repositories: PropTypes.arrayOf(
+    PropTypes.shape({
+      result: PropTypes.array.isRequired,
+      id: PropTypes.number.isRequired,
+    })
+  )
+}
+
 export default Home;
