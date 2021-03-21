@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "MyWeather",
-    "slug": "MyWeather",
+    "name": "GitHub Repo Search",
+    "slug": "github-repo-search",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -21,6 +21,8 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "This basic app allows you to type a search and display informations about GitHub repositories",
+    "githubUrl": "https://github.com/adrienzagar/React-Native-GitHub-Repositry-Search"
   }
 }
