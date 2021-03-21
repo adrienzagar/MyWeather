@@ -1,11 +1,11 @@
 import axios from 'axios';
-import { GET_REPOSITORIES, saveRepositories } from '../actions/home';
+import { GET_REPOSITORIES, saveRepositories, setError } from '../actions/home';
 
 const searchMiddlewares = (store) => (next) => (action) => {
     switch (action.type) {
         case GET_REPOSITORIES: {
             const state = store.getState();
-            console.log(state)
+            // console.log(state)
             const inputValue  = state.home.inputValue;
             console.log(inputValue)
 
@@ -15,7 +15,10 @@ const searchMiddlewares = (store) => (next) => (action) => {
                     store.dispatch(saveRepositories(data.items))
                 })
                 .then((error) => {
-                    console.log(error)
+                    const actionToDispatch = setError();
+                    store.dispatch(actionToDispatch);
+                    console.log('An error has occured', error)
+                    
                 });
                 next(action);
                 break;

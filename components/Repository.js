@@ -38,8 +38,8 @@ const style = StyleSheet.create({
 
 Repository.propTypes = {
     name: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    owner: PropTypes.string.isRequired,
+    description: PropTypes.string,
+    owner: PropTypes.object.isRequired,
     stargazers_count: PropTypes.number.isRequired,
 }
 

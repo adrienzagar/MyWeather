@@ -7,16 +7,19 @@ import Repository from './Repository';
 import PropTypes from 'prop-types';
 // import { onChange } from 'react-native-reanimated';
 
-const Home = ({ setInputValue, inputValue, getRepositories, repositories }) => {
+const Home = ({ setInputValue, inputValue, getRepositories, repositories, loading, error }) => {
 
   const handleOnSubmit = (evt) => {
     // console.log(inputValue)
+    // console.log(repositories)
+
     evt.preventDefault();
     getRepositories()
     // onSubmitSearch()
   }
   const handleChange = (evt) => {
-    console.log(repositories)
+    // console.log(repositories)
+    // console.log(inputValue)
     setInputValue(evt)
   }
     return (
@@ -28,12 +31,14 @@ const Home = ({ setInputValue, inputValue, getRepositories, repositories }) => {
           onChangeText={handleChange}
           onSubmitEditing={handleOnSubmit}
           value={inputValue}
-        />
+          />
+          {!loading && (
            <ScrollView style={style.scrollView}>
-        {repositories.map((result) => (
-          <Repository key={result.id} {...result} />
-        ))}
+            {repositories.map((result) => (
+              <Repository key={result.id} {...result} />
+            ))}
             </ScrollView>
+        )}
       </View>
     )
 };
@@ -67,10 +72,12 @@ Home.propTypes = {
   inputValue: PropTypes.string,
   getRepositories: PropTypes.func.isRequired,
   setInputValue: PropTypes.func.isRequired,
+  loading: PropTypes.bool.isRequired,
+  error: PropTypes.bool.isRequired,
   repositories: PropTypes.arrayOf(
     PropTypes.shape({
-      result: PropTypes.array.isRequired,
-      id: PropTypes.number.isRequired,
+      result: PropTypes.array,
+      id: PropTypes.number,
     })
   )
 }
